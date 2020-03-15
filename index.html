@@ -5,10 +5,90 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
+
+    <header>
+        <h1>Weather Dashboard</h1>
+    </header>
+
+    <main class="container-fluid">
+
+        <div class="row">
+            <div class="col-md-3 col-sm-4 left-side">
+                <div class="row">
+                    <div class="col-sm mt-3">
+                        <label for="search" id="searchLabel">Search for a City:</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-8 col-auto pr-0">
+                        <input id="searchInput" type="search" class="form-control">
+                    </div>
+                    <div class="col-auto pl-0">
+                        <button id="btnSearchSubmit" type="submit" class="btn btn-primary">Search
+                        </button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <ul id="city-list" class="list-group"></ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-9 col-sm-8 right-side">
+                <div class="row">
+                    <div class="col-12 mt-3">
+                        <div class="card card-big">
+                            <div class="card-body">
+                                <div id="today">
+
+                                    <img id="conditions-image" src="" alt="Current Weather Conditions">
+                                </div>
+                                <div class="row">
+
+                                    <div class="col-sm-6 px-0">
+                                        <table class="table table-sm table-hover">
+                                            <tr>
+                                                <th>Temperature:</th>
+                                                <td><span id="temperature"></span></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Humidity:</th>
+                                                <td><span id="humidity"></span></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Windspeed:</th>
+                                                <td><span id="wind-speed"></span></td>
+                                            </tr>
+                                            <tr>
+                                                <th>UV Index:</th>
+                                                <td><span id="uv-index"></span></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 mt-3">
+                        <h2>5-Day Forecast: </h2>
+                        <div class="row five-day">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="script.js"></script>
