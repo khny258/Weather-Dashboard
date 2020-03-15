@@ -1,10 +1,11 @@
+// global variables
 let $fiveDay = $(".five-day");
 let cities = JSON.parse(localStorage.getItem("cities")) || ["New York", "San Francisco", "Seattle"];
 let API_BASE_URL = "https://api.openweathermap.org/data/2.5/";
 let API_KEY = "cfbdbea4e3a2f438ae1162fe272ec25c";
 let lastCity = "";
 
-
+// city list
 function populateCities(city) {
     
     let $cityGroup = $('#city-list').empty();
@@ -19,6 +20,7 @@ function populateCities(city) {
     }
 }
 
+// add city to list
 function addCity() {
     let city = $("#searchInput").val().trim();
 
@@ -32,6 +34,7 @@ function _addCityFinal(city) {
     
 }
 
+// checks to see if city is valid
 function checkValidCity(city) {
     $.ajax({
         url: getApiUrl(city),
@@ -50,6 +53,7 @@ function checkValidCity(city) {
     });
 }
 
+// load city to local storage
 function loadCity(city) {
 
     $(".city").removeClass("active");
@@ -62,6 +66,7 @@ function loadCity(city) {
     }
 }
 
+// get data from API
 function getData(city) {
     
     let current_api_url = getApiUrl(city, false);
@@ -104,7 +109,7 @@ function getData(city) {
     });
 }
 
-
+// fills information from API
 function fillCurrentDay(city, response) {
     console.log("Current Day Response Received");
     console.log(response);
@@ -122,12 +127,13 @@ function fillCurrentDay(city, response) {
     $("#description").text(condition);
     $("#head-city-date").text(response.name + moment.unix(response.dt).format(" (M/DD/YYYY)"));
     $("#time-hour").text(moment.unix(response.dt).format("ha"));
-    $("#temperature").html(tempF.toFixed(0) + " &deg;F");
+    $("#temperature").html(tempF.toFixed(0) + "&deg;F");
     $("#humidity").text(humidity.toFixed(0)+ "%");
     $("#wind-speed").text((windSpeed).toFixed(1)+ " MPH");
     $("#uv-index").text(condition);
 }
 
+// function for the five day data
 function fillFiveDay(response) {
     console.log("5-Day Forecast Response Received");
     console.log(response);
@@ -138,7 +144,7 @@ function fillFiveDay(response) {
     let numTimeBlocksPerDay = 24/numHoursPerBlock;
     let offsetStart = numTimeBlocksPerDay - 1;
 
-    
+    // for loop for the five day data
     for(let i=0; i<numDays; i++) {
         let li = response.list[(i*numTimeBlocksPerDay)+offsetStart];
         let timeStamp = moment.unix(li.dt);
@@ -151,10 +157,11 @@ function fillFiveDay(response) {
     }
 }
 
-
+// gets data for UV Index
 function getUvIndexUrl(lat, lon) {
     return "https://api.openweathermap.org/data/2.5/uvi?appid=" + API_KEY + "&lat=" + lat.toFixed(2) + "&lon=" + lon.toFixed(2);
 }
+
 
 function getApiUrl(city, isForecast) {
     let queryString = isForecast ? "forecast" : "weather";
@@ -169,6 +176,7 @@ function getIconUrl(iconcode) {
     
 }
 
+// function for the five day cards information
 function create5DayCard(momentDay, iconUrl, description, temperature, humidity) {
     let date = momentDay.format("M/D/YYYY");
     let hour = momentDay.format("ha");
@@ -185,7 +193,7 @@ function create5DayCard(momentDay, iconUrl, description, temperature, humidity) 
     return card;
 }
 
-
+// call: read local storage()
 $(function() {
     
     let initialCity = localStorage.getItem("lastCity") || cities[0];
