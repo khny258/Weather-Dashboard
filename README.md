@@ -7,4 +7,4 @@ https://khny258.github.io/Weather-Dashboard/
 
 <strong>Mobile</strong>
 <br>
-<img src="mobile.png">
+<img src="mobile.jpg">
