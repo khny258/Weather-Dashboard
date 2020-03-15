@@ -9,7 +9,8 @@ https://khny258.github.io/Weather-Dashboard/
 <br>
 <img src="mobile.jpg" width="25%" height="25%">
 <br>
-Requirements for the Weather Dashboard:
+<br>
+<strong>Requirements for the Weather Dashboard:</strong>
 1. Create a weather dashboard with form inputs
 2. After searching for a city, present current and future conditions and add it to search history
 3. Present the UV index
@@ -19,5 +20,6 @@ Requirements for the Weather Dashboard:
 
 I used HTML, CSS, JavaScript, jQuery, and the OpenWeather API (https://openweathermap.org/api) for this assignment.
 
+<br>
 The finished product should look like this:
 <img src="example.png">
