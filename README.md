@@ -3,11 +3,11 @@ https://khny258.github.io/Weather-Dashboard/
 
 <strong>Desktop</strong>
 <br>
-<img src="desktop.png">
+<img src="assets/desktop.png">
 
 <strong>Mobile</strong>
 <br>
-<img src="mobile.jpg" width="25%" height="25%">
+<img src="assets/mobile.jpg" width="25%" height="25%">
 <br>
 <br>
 <strong>Requirements for the Weather Dashboard:</strong>
@@ -22,4 +22,4 @@ I used HTML, CSS, JavaScript, jQuery, and the OpenWeather API (https://openweath
 
 <br>
 The finished product should look like this:
-<img src="example.png">
+<img src="assets/example.png">
